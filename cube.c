@@ -50,7 +50,6 @@ void main() {
             printf( "Windwo could not be created! SDL_Error: %s\n", SDL_GetError() );
         }
         else {
-            printf("Window is here\n");
             SDL_Renderer * renderer = SDL_CreateRenderer(window, -1, 0);
             SDL_Event e;
             bool quit = false;
