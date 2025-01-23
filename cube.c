@@ -6,24 +6,27 @@
 void rotate_y(float vertecies[], double a) {
     int i = 0;
     for (i = 0; i < 24; i+=3) {
-        vertecies[i] = vertecies[i]*cos(a) - vertecies[i+2]*sin(a);
+        float tmp = vertecies[i]*cos(a) - vertecies[i+2]*sin(a);
         vertecies[i+2] = vertecies[i+2]*cos(a) + vertecies[i]*sin(a);
+        vertecies[i] = tmp;
     }
 }
 
 void rotate_x(float vertecies[], double a) {
     int i = 0;
     for (i = 0; i < 24; i+=3) {
-        vertecies[i+1] = vertecies[i+1]*cos(a) + vertecies[i+2]*sin(a);
+        float tmp = vertecies[i+1]*cos(a) + vertecies[i+2]*sin(a);
         vertecies[i+2] = vertecies[i+2]*cos(a) - vertecies[i+1]*sin(a);
+        vertecies[i+1] = tmp;
     }
 }
 
 void rotate_z(float vertecies[], double a) {
     int i = 0;
     for (i = 0; i < 24; i+=3) {
-        vertecies[i] = vertecies[i]*cos(a) + vertecies[i+1]*sin(a);
+        float tmp = vertecies[i]*cos(a) + vertecies[i+1]*sin(a);
         vertecies[i+1] = vertecies[i+1]*cos(a) - vertecies[i]*sin(a);
+        vertecies[i] = tmp;
     }
 }
 
@@ -38,17 +41,6 @@ void main() {
     const double pi = 3.141592;
     SDL_Window* window = NULL;
     SDL_Surface* screenSurface = NULL;
-//    rotate_y(vertecies, 0.1);
-    printf("Hello\n");
-    int i;
-    for (i = 0; i < 24; i++) {
-        printf("%f ", vertecies[i]);
-    }
-    printf("\n");
-    for (i = 0; i < 24; i++) {
-        printf("%hd ", edges[i]);
-    }
-    printf("\n");
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
     }
