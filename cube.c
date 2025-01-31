@@ -3,7 +3,8 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 
-void rotate_y(float vertecies[], double a) {
+void rotate_y(float vertecies[], double a)
+{
     int i = 0;
     for (i = 0; i < 24; i+=3) {
         float tmp = vertecies[i]*cos(a) - vertecies[i+2]*sin(a);
@@ -12,7 +13,8 @@ void rotate_y(float vertecies[], double a) {
     }
 }
 
-void rotate_x(float vertecies[], double a) {
+void rotate_x(float vertecies[], double a)
+{
     int i = 0;
     for (i = 0; i < 24; i+=3) {
         float tmp = vertecies[i+1]*cos(a) + vertecies[i+2]*sin(a);
@@ -21,7 +23,8 @@ void rotate_x(float vertecies[], double a) {
     }
 }
 
-void rotate_z(float vertecies[], double a) {
+void rotate_z(float vertecies[], double a)
+{
     int i = 0;
     for (i = 0; i < 24; i+=3) {
         float tmp = vertecies[i]*cos(a) + vertecies[i+1]*sin(a);
@@ -30,7 +33,8 @@ void rotate_z(float vertecies[], double a) {
     }
 }
 
-void main() {
+void main()
+{
     float vertecies[24] = { -2, -2, -2, 2, -2, -2, -2, 2, -2, -2, -2, 2, 2, 2, -2, 2, -2, 2, -2, 2, 2, 2, 2, 2 };
     const short int edges[24] = { 0, 1, 0, 2, 0, 3, 1, 4, 1, 5, 2, 4, 2, 6, 3, 6, 3, 5, 5, 7, 6, 7, 7, 4 };
     const short int fov = -20;
